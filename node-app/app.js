@@ -2,6 +2,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
+import path from 'path';
 
 const app = express();
 const port = 3000
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(cors());
+app.use(express.static('views'));
 
 
 function verifyToken(req,res, next) {
@@ -33,7 +35,7 @@ function verifyToken(req,res, next) {
 }
 
 app.get('/', (req,res)=>{
-  res.send('Si jala')
+  res.sendFile(path.join('/Users/nelsonismaelmandujanodiaz/APIwork/node-app/views/login','index.html'));
 })
 
 app.post("/login", (req,res) =>{
