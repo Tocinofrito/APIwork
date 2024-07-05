@@ -1,0 +1,5 @@
+node_modules
+mongo-data
+.vscode
+.eslintrc.json
+eslint.config.js

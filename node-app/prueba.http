@@ -1,0 +1,20 @@
+POST http://localhost:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username" : "isma",
+  "password" : "123"
+}
+
+###verdadero
+POST http://localhost:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username" : "admin",
+  "password" : "123"
+}
+
+###get protected
+GET http://localhost:3000/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzIwMTE0MjUxLCJleHAiOjE3MjAxMTc4NTF9.jgpxFCl2lhCbdORFMS8WcVAq7c3CM7quLF3cdjIFoJE
