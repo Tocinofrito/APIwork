@@ -9,18 +9,19 @@ const port = 3000
 const secretKey = "Malooo"
 
 app.use(express.json())
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   next();
+// });
 app.use(cors());
 app.use(express.static('views'));
 
 
 function verifyToken(req,res, next) {
   const header = req.header("Authorization") || "";
+  console.log("header" + header)
   const token = header.split(" ")[1];
   if(!token){
     return res.status(401).json({message: "Token not provided"});

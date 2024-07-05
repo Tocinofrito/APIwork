@@ -33,7 +33,22 @@ button.addEventListener("click", () =>{
     if(data.token){
       localStorage.setItem('token', data.token);
       console.log(data);
-      window.location.href = "http://localhost:3000/protected"
+
+      fetch("http://localhost:3000/protected",{
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer " + data.token
+        }
+      })
+      .then(protectedResponse => protectedResponse.json())
+      .then(protectedData =>{
+        if(protectedData.message){
+          window.location.href = "http://localhost:3000/protected";
+        }
+      }).catch(error =>{
+        console.error("Error:",error);
+      });
+      //window.location.href = "http://localhost:3000/protected"
     }else{
       console.error("Error", data.message);
     }
