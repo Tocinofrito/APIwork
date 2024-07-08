@@ -1,0 +1,9 @@
+table{
+  border: 4px #3f8a96 solid;
+  text-align: center;
+  padding: 10px;
+}
+thead, tbody{
+  padding: 15px;
+  margin: 10px;
+}

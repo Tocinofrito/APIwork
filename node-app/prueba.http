@@ -18,3 +18,20 @@ Content-Type: application/json
 ###get protected
 GET http://localhost:3000/protected
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzIwMTE0MjUxLCJleHAiOjE3MjAxMTc4NTF9.jgpxFCl2lhCbdORFMS8WcVAq7c3CM7quLF3cdjIFoJE
+
+###POST data empleado
+POST http://localhost:3000/addData HTTP/1.1
+Content-Type: application/json
+
+{
+  "nombre" : "Ismael",
+  "apellido" : "Mandujano",
+  "apartamento" : "IT",
+  "edad" : 24,
+  "empleadoId" : 1
+}
+
+###GET Data empleados
+GET http://localhost:3000/getData HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzIwNDA3NDc3LCJleHAiOjE3MjA0MTEwNzd9.TrUM4h4572G-KkDlDigy7HM9iDQ0orAFXR5EFUfgjRA
+Content-Type: application/json

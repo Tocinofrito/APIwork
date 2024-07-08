@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Empleado</title>
+</head>
+<body>
+    <h1>Agregar Empleado</h1>
+    <form id="addDataForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+        <label for="apartamento">Apartamento:</label>
+        <input type="text" id="apartamento" name="apartamento" required><br><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br><br>
+        <label for="empleadoId">ID del Empleado:</label>
+        <input type="number" id="empleadoId" name="empleadoId" required><br><br>
+        <button type="submit">Agregar</button>
+    </form>
+    <script>
+        document.getElementById('addDataForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                apellido: document.getElementById('apellido').value,
+                apartamento: document.getElementById('apartamento').value,
+                edad: document.getElementById('edad').value,
+                empleadoId: document.getElementById('empleadoId').value,
+            };
+
+            const response = await fetch('/addData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('Empleado agregado exitosamente');
+                document.getElementById('addDataForm').reset();
+            } else {
+                alert('Error al agregar empleado');
+            }
+        });
+    </script>
+</body>
+</html>
